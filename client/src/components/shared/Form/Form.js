@@ -8,7 +8,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("donar");
   const [name, setName] = useState("");
-  const [organisationName, setOrganisationName] = useState("");
+  const [organizationName, setOrganizationName] = useState("");
   const [hospitalName, setHospitalName] = useState("");
   const [website, setWebsite] = useState("");
   const [address, setAddress] = useState("");
@@ -27,7 +27,7 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               email,
               password,
               phone,
-              organisationName,
+              organizationName,
               address,
               hospitalName,
               website
@@ -82,12 +82,12 @@ const Form = ({ formType, submitBtn, formTitle }) => {
               type="radio"
               className="form-check-input"
               name="role"
-              id="organisationRadio"
-              value={"organisation"}
+              id="organizationRadio"
+              value={"organization"}
               onChange={(e) => setRole(e.target.value)}
             />
-            <label htmlFor="organisationRadio" className="form-check-label">
-              Organisation
+            <label htmlFor="organizationRadio" className="form-check-label">
+              Blood Bank
             </label>
           </div>
         </div>
@@ -130,14 +130,14 @@ const Form = ({ formType, submitBtn, formTitle }) => {
                       onChange={(e) => setName(e.target.value)}
                     />
                   )}
-                  {role === "organisation" && (
+                  {role === "organization" && (
                     <InputType
-                      labelText={"Organisation Name"}
-                      labelFor={"fororganisationName"}
+                      labelText={"Organization Name"}
+                      labelFor={"fororganizationName"}
                       inputType={"text"}
-                      name={"organisationName"}
-                      value={organisationName}
-                      onChange={(e) => setOrganisationName(e.target.value)}
+                      name={"organizationName"}
+                      value={organizationName}
+                      onChange={(e) => setOrganizationName(e.target.value)}
                     />
                   )}
                   {role === "hospital" && (
@@ -200,12 +200,12 @@ const Form = ({ formType, submitBtn, formTitle }) => {
         <div className="d-flex flex-row justify-content-between">
           {formType === "login" ? (
             <p>
-              Not registerd yet ? Register
+              Not registered yet ? Register
               <Link to="/register"> Here !</Link>
             </p>
           ) : (
             <p>
-              ALready Usser Please
+              ALready User Please
               <Link to="/login"> Login !</Link>
             </p>
           )}

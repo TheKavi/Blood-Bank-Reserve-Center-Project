@@ -9,7 +9,7 @@ const getDonarsListController = async (req, res) => {
 
     return res.status(200).send({
       success: true,
-      Toatlcount: donarData.length,
+      Totalcount: donarData.length,
       message: "Donar List Fetched Successfully",
       donarData,
     });
@@ -17,7 +17,7 @@ const getDonarsListController = async (req, res) => {
     console.log(error);
     return res.status(500).send({
       success: false,
-      message: "Error In DOnar List API",
+      message: "Error In Donar List API",
       error,
     });
   }
@@ -31,7 +31,7 @@ const getHospitalListController = async (req, res) => {
 
     return res.status(200).send({
       success: true,
-      Toatlcount: hospitalData.length,
+      Totalcount: hospitalData.length,
       message: "HOSPITAL List Fetched Successfully",
       hospitalData,
     });
@@ -48,12 +48,12 @@ const getHospitalListController = async (req, res) => {
 const getOrgListController = async (req, res) => {
   try {
     const orgData = await userModel
-      .find({ role: "organisation" })
+      .find({ role: "organization" })
       .sort({ createdAt: -1 });
 
     return res.status(200).send({
       success: true,
-      Toatlcount: orgData.length,
+      Totalcount: orgData.length,
       message: "ORG List Fetched Successfully",
       orgData,
     });

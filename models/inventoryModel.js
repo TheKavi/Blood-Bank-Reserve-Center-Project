@@ -14,16 +14,16 @@ const inventorySchema = new mongoose.Schema(
     },
     quantity: {
       type: Number,
-      require: [true, "blood quanity is require"],
+      require: [true, "blood quantity is require"],
     },
     email: {
       type: String,
       required: [true, "Donar Email is Required"],
     },
-    organisation: {
+    organization: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "users",
-      required: [true, "organisation is require"],
+      required: [true, "organization is require"],
     },
     hospital: {
       type: mongoose.Schema.Types.ObjectId,
@@ -43,4 +43,4 @@ const inventorySchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-module.exports = mongoose.model("Inventory", inventorySchema);
+module.exports = mongoose.model("inventories", inventorySchema);

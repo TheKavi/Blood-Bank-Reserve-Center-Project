@@ -1,12 +1,13 @@
 const userModel = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+require("dotenv").config({ path: "./config/.env" });
 
 const registerController = async (req, res) => {
   try {
-    const exisitingUser = await userModel.findOne({ email: req.body.email });
+    const existingUser = await userModel.findOne({ email: req.body.email });
     //validation
-    if (exisitingUser) {
+    if (existingUser) {
       return res.status(200).send({
         success: false,
         message: "User ALready exists",
@@ -21,7 +22,7 @@ const registerController = async (req, res) => {
     await user.save();
     return res.status(201).send({
       success: true,
-      message: "User Registerd Successfully",
+      message: "User Registered Successfully",
       user,
     });
   } catch (error) {
@@ -45,10 +46,10 @@ const loginController = async (req, res) => {
       });
     }
     //check role
-    if (user.role !== req.body.role) {
+    if (user && user.role !== req.body.role) {
       return res.status(500).send({
         success: false,
-        message: "role dosent match",
+        message: "role does not match",
       });
     }
     //compare password
@@ -62,7 +63,8 @@ const loginController = async (req, res) => {
         message: "Invalid Credentials",
       });
     }
-    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+    //const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
+      const token = jwt.sign({userId: user._id}, "mysecretkey123",{
       expiresIn: "1d",
     });
     return res.status(200).send({

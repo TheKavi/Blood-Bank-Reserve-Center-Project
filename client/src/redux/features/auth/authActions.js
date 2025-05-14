@@ -1,12 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import API from "../../../services/API";
-import { toast } from "react-toastify";
+//import { toast } from "react-toastify";
 
 export const userLogin = createAsyncThunk(
   "auth/login",
   async ({ role, email, password }, { rejectWithValue }) => {
     try {
-      const { data } = await API.post("/auth/login", { role, email, password });
+      const { data } = await API.post("/api/v1/auth/login", { role, email, password });
       //store token
       if (data.success) {
         alert(data.message);
@@ -26,7 +26,7 @@ export const userLogin = createAsyncThunk(
 
 //register
 export const userRegister = createAsyncThunk(
-  "auth/register",
+  "api/v1/auth/register",
   async (
     {
       name,
@@ -34,7 +34,7 @@ export const userRegister = createAsyncThunk(
       email,
       password,
       phone,
-      organisationName,
+      organizationName,
       address,
       hospitalName,
       website,
@@ -42,21 +42,21 @@ export const userRegister = createAsyncThunk(
     { rejectWithValue }
   ) => {
     try {
-      const { data } = await API.post("/auth/register", {
+      const { data } = await API.post("api/v1/auth/register", {
         name,
         role,
         email,
         password,
         phone,
-        organisationName,
+        organizationName,
         address,
         hospitalName,
         website,
       });
       if (data?.success) {
-        alert("User Registerd Successfully");
+        alert("User Registered Successfully");
         window.location.replace("/login");
-        // toast.success("User Registerd Successfully");
+        // toast.success("User Registered Successfully");
       }
     } catch (error) {
       console.log(error);
@@ -74,7 +74,7 @@ export const getCurrentUser = createAsyncThunk(
   "auth/getCurrentUser",
   async ({ rejectWithValue }) => {
     try {
-      const res = await API.get("/auth/current-user");
+      const res = await API.get("api/v1/auth/current-user");
       if (res.data) {
         return res?.data;
       }

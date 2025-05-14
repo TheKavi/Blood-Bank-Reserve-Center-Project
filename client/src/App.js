@@ -8,7 +8,7 @@ import ProtectedRoute from "./components/Routes/ProtectedRoute";
 import PublicRoute from "./components/Routes/PublicRoute";
 import Donar from "./pages/Dashboard/Donar";
 import Hospitals from "./pages/Dashboard/Hospitals";
-import OrganisationPage from "./pages/Dashboard/OrganisationPage";
+import OrganizationPage from "./pages/Dashboard/OrganizationPage";
 import Consumer from "./pages/Dashboard/Consumer";
 import Donation from "./pages/Donation";
 import Analytics from "./pages/Dashboard/Analytics";
@@ -87,10 +87,10 @@ function App() {
           }
         />
         <Route
-          path="/orgnaisation"
+          path="/organization"
           element={
             <ProtectedRoute>
-              <OrganisationPage />
+              <OrganizationPage />
             </ProtectedRoute>
           }
         />

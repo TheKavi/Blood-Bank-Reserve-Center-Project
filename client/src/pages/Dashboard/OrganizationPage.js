@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Layout from "./../../components/shared/Layout/Layout";
+import Layout from "../../components/shared/Layout/Layout";
 import moment from "moment";
 import { useSelector } from "react-redux";
 import API from "../../services/API";
 
-const OrganisationPage = () => {
+const OrganizationPage = () => {
   // get current user
   const { user } = useSelector((state) => state.auth);
   const [data, setData] = useState([]);
@@ -12,19 +12,19 @@ const OrganisationPage = () => {
   const getOrg = async () => {
     try {
       if (user?.role === "donar") {
-        const { data } = await API.get("/inventory/get-orgnaisation");
+        const { data } = await API.get("/inventory/get-organization");
         //   console.log(data);
         if (data?.success) {
-          setData(data?.organisations);
+          setData(data?.organizations);
         }
       }
       if (user?.role === "hospital") {
         const { data } = await API.get(
-          "/inventory/get-orgnaisation-for-hospital"
+          "/inventory/get-organization-for-hospital"
         );
         //   console.log(data);
         if (data?.success) {
-          setData(data?.organisations);
+          setData(data?.organizations);
         }
       }
     } catch (error) {
@@ -51,7 +51,7 @@ const OrganisationPage = () => {
         <tbody>
           {data?.map((record) => (
             <tr key={record._id}>
-              <td>{record.organisationName}</td>
+              <td>{record.organizationName}</td>
               <td>{record.email}</td>
               <td>{record.phone}</td>
               <td>{record.address}</td>
@@ -64,4 +64,4 @@ const OrganisationPage = () => {
   );
 };
 
-export default OrganisationPage;
+export default OrganizationPage;

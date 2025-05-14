@@ -15,9 +15,9 @@ const Modal = () => {
       if (!bloodGroup || !quantity) {
         return alert("Please Provide All Fields");
       }
-      const { data } = await API.post("/inventory/create-inventory", {
+      const { data } = await API.post("api/v1/inventory/create-inventory", {
         email,
-        organisation: user?._id,
+        organization: user?._id,
         inventoryType,
         bloodGroup,
         quantity,
@@ -112,7 +112,7 @@ const Modal = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <InputType
-                labelText={"Quanitity (ML)"}
+                labelText={"Quantity (ML)"}
                 labelFor={"quantity"}
                 inputType={"Number"}
                 value={quantity}
