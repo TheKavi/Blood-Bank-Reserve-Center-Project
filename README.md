@@ -30,15 +30,25 @@ Development Environment: Visual Studio Code
 This project aims to enhance patient care through timely access to blood units by reducing delays in hospital-to-bank communications. The solution is designed to be scalable, user-friendly, and supportive of emergency health infrastructure.
 
 📷 Screenshots
+
 About and Architecture Diagram
+
 ![image](https://github.com/user-attachments/assets/e1958511-f6ff-4139-a066-4a58060245f1)
+
 Login page
+
 ![image](https://github.com/user-attachments/assets/55863e13-d8e2-4eeb-8d5f-316992c192eb)
+
 Database connection
+
 ![image](https://github.com/user-attachments/assets/c8881601-4802-4ab5-b42f-0ac71f2ebeeb)
+
 Admin panel
+
 ![image](https://github.com/user-attachments/assets/2d1a84fc-27c3-4777-a385-a81bc7382871)
+
 Near Hospital List 
+
 ![image](https://github.com/user-attachments/assets/ea2994b9-a30f-423e-a4a0-d882453829e9)
 
 
